@@ -10,6 +10,12 @@ How I wish I can eat chocolate everyday and don't get unhealthy!
 
 I like studying IBI!
 
+I like listening to Westlife!
+
+I like listening to Backstreet boys!
+
+I like listening to A1!
+
 I want to eat chocolate!!!! 
 
 大家好呀，我是katie，欢迎大家跟我一起吃巧克力🙏
