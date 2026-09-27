@@ -34,3 +34,11 @@ Home contains About only. Research, Notes, and Contact are independent HTML page
 
 ## Fix the current upload
 Your myweb branch currently nests the site in personal-homepage/. Upload the CONTENTS of this package at the repository ROOT, alongside the existing index.md. The root must directly contain index.html, assets/, projects/, notes/, contact/, about/ and .nojekyll. Do not upload the enclosing folder. In Settings > Pages, verify myweb and /(root). Old nested files can remain; they do not serve the root homepage. On macOS, Command+Shift+. reveals .nojekyll. If needed, create an empty file named .nojekyll through Add file > Create new file.
+
+## About modules (v3)
+Education, Honors, Languages, and Hobbies are included in index.html and about/index.html. Edit both copies when changing their text. Institution and hobbies come from the existing site. Degree, dates, awards, and language proficiency are placeholders.
+
+.nojekyll now contains text so it is not an empty upload. Its contents do not matter; its presence disables Jekyll. Alternatively, on myweb use Add file > Create new file, filename .nojekyll, content `Disable Jekyll`, then commit to myweb. This avoids the upload dialog entirely.
+
+## Version 4 — reference-style academic layout
+Uses a narrow centered text column, Poppins body type, Jost headings, simple bullet lists, no cards or divider lines for About subsections, and a desktop icon navigation rail. Fonts load from Google Fonts with system fallbacks. Research, Notes and Contact remain separate pages. Square brackets indicate details to replace, not actual qualifications. The reference author's credentials, portrait, publications and research figure have not been copied.
