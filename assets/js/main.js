@@ -1,9 +1,11 @@
 document.documentElement.classList.add('js');
 const button = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#navigation');
+if (button && nav) {
 button.hidden = false;
 button.addEventListener('click', () => { const open = button.getAttribute('aria-expanded') !== 'true'; button.setAttribute('aria-expanded', String(open)); nav.classList.toggle('open', open); button.querySelector('span').textContent = open ? '−' : '＋'; });
 document.addEventListener('keydown', (event) => { if(event.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); button.setAttribute('aria-expanded','false'); button.querySelector('span').textContent = '＋'; button.focus(); } });
+}
 document.querySelectorAll('[data-year]').forEach(element => element.textContent = new Date().getFullYear());
 
 const hero = document.querySelector('.hero');
@@ -11,7 +13,7 @@ if (hero) { const updateRail = () => document.body.classList.toggle('show-rail',
 
 const researchLinks = [...document.querySelectorAll('.timeline-link')];
 if (researchLinks.length) {
-  const projects = researchLinks.map(link => document.querySelector(link.getAttribute('href')));
+  const projects = researchLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
   const markProject = id => researchLinks.forEach(link => {
     if (link.hash === '#' + id) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
@@ -20,12 +22,15 @@ if (researchLinks.length) {
   researchLinks.forEach(link => link.addEventListener('click', event => {
     event.preventDefault();
     const project = document.querySelector(link.hash);
+    if (!project) return;
     clicking = true;
     markProject(project.id);
     const rect = project.getBoundingClientRect();
     scrollTo({top: Math.max(0, scrollY + rect.top + rect.height / 2 - innerHeight / 2), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
     history.replaceState(null, '', link.hash);
-    setTimeout(() => { clicking = false; }, 700);
+    const settle = () => { clicking = false; };
+    addEventListener('scrollend', settle, {once:true});
+    setTimeout(settle, 1000);
   }));
   let pending = false;
   const updateProject = () => {
@@ -51,7 +56,9 @@ if (index) {
     const elapsed = lastTime ? Math.min(time - lastTime, 40) / 1000 : 0;
     lastTime = time;
     speed += (pointerSpeed - speed) * Math.min(1, elapsed * 10);
+    const before = index.scrollTop;
     index.scrollTop += speed * elapsed;
+    if (elapsed && index.scrollTop === before && Math.abs(speed) > 1) { frame = 0; lastTime = 0; return; }
     if (Math.abs(speed) > 1 || Math.abs(pointerSpeed) > 1) frame = requestAnimationFrame(tick);
     else { frame = 0; lastTime = 0; }
   };
