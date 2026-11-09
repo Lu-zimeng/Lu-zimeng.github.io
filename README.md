@@ -1,9 +1,9 @@
-# Katie Lu — academic website v15
+# Katie Lu — academic website v16
 
 Standalone static HTML/CSS/JavaScript website. This version continues the CV layout refinements and uses the user-supplied `14683903_3840_2160_30fps.mp4` as the Home hero background. Original source video and historical versions are unchanged.
 
 ## Preview
-Open `index.html`, or run `python3 -m http.server 8015` and visit http://localhost:8015/. No dependencies or build step.
+Open `index.html`, or run `python3 -m http.server 8016` and visit http://localhost:8016/. No dependencies or build step.
 
 ## Current refinements
 - Berkeley: italic Summer Sessions; black bullet list with bold Grade A (4.00/4.00) before Course UGBA 195T – Topics in Entrepreneurship. Dates and locations align right.
@@ -24,3 +24,6 @@ Checked Home at 320, 390, 768, and 1440 px and all other pages at mobile and des
 
 ## GitHub Pages
 Preserve `.nojekyll`, `_config.yml`, and the existing publishing branch/root settings. Upload this folder’s contents only when ready. No commit, push, or deployment has been performed.
+
+## v16
+Home adds LinkedIn beside GitHub. Activities removes the pitch slides link and PDF while retaining the video. Research updates the four multiSAID bullets. v15 is preserved.

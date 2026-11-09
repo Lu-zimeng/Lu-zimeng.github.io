@@ -149,3 +149,6 @@ nav .icon-solid{display:none}nav a[aria-current="page"]>.icon:not(.icon-solid){d
 .hero--video .hero-link:hover{color:#fff}
 .berkeley-entry em{font-style:italic;font-weight:400}
 @media(max-width:760px){.berkeley-entry .education-row>span:last-child{align-self:flex-end;text-align:right}}
+
+.hero-social{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 24px;margin-top:25px}
+.hero-social .hero-link{margin-top:0}
